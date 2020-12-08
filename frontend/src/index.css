@@ -1,0 +1,54 @@
+main {
+  min-height: 80vh;
+}
+
+.nav-link {
+  color: black;
+}
+
+.nav-link:hover {
+  color: #c41d1d;
+}
+
+.nav-link:active {
+  font-weight: bold;
+  color: #c41d1d;
+}
+
+h1 {
+  padding: 60px 0 60px 0;
+}
+
+h3 {
+  padding: 1rem;
+}
+
+.rating span {
+  margin: 0.1rem;
+}
+
+.store-locator {
+  height: 100px;
+  width: 1000px;
+}
+
+.hero-section {
+  border-radius: 0px;
+  background-image: url('https://images.unsplash.com/photo-1526738549149-8e07eca6c147?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1225&q=80');
+  background-size: cover;
+  color: white;
+  background-repeat: no-repeat;
+}
+
+.hero-section__header {
+  padding-bottom: 0;
+}
+
+.btn-primary {
+  background-color: #c41d1d !important;
+  border: none;
+}
+
+.card-title {
+  color: black;
+}
