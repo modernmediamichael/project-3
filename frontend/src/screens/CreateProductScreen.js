@@ -2,6 +2,7 @@ import React, { useEffect, useState }from 'react'
 import { Link } from 'react-router-dom'
 import { Form, Button, Col } from 'react-bootstrap'
 import axios from 'axios'
+import defaultImg from '../sample.png'
 
 export default class CreateProduct extends React.Component {
 
@@ -23,7 +24,7 @@ export default class CreateProduct extends React.Component {
             price: '',
             shortDescription: '',
             longDescription: '',
-            multerImage: ''
+            multerImage: defaultImg
         }
     }
 
@@ -35,32 +36,32 @@ export default class CreateProduct extends React.Component {
         }
     }
 
-    // uploadImage(e, method) {
-    //     let imageObj = {}
+    uploadImage(e, method) {
+        let imageFormObj = {}
 
-    //     if (method === "multer") {
-    //         let imageFormObj = new FormData()
+        if (method === "multer") {
+            let imageFormObj = new FormData()
 
-    //         imageFormObj.append("imageName", "multer-image-" + Date.now())
-    //         imageFormObj.append("imageData", e.target.files[0])
-    //     }
+            imageFormObj.append("imageName", "multer-image-" + Date.now())
+            imageFormObj.append("imageData", e.target.files[0])
+        }
 
-    //     this.setState({
-    //         multerImage: URL.createObjectURL(e.target.files[0])
-    //     })
+        this.setState({
+            multerImage: URL.createObjectURL(e.target.files[0])
+        })
 
-    //     axios.post(`${API_URL}/image/uploadmulter`, imageFormObj)
-    //         .then((data) => {
-    //             if (data.data.success) {
-    //                 alert("Success")
-    //                 this.setDefaultImage("multer")
-    //             }
-    //         })
-    //         .catch((err) => {
-    //             alert("error")
-    //             this.setDefaultImage("multer")
-    //         })
-    // }
+        axios.post('/api/image/uploadmulter', imageFormObj)
+            .then((data) => {
+                if (data.data.success) {
+                    alert("Success")
+                    this.setDefaultImage("multer")
+                }
+            })
+            .catch((err) => {
+                alert("error")
+                this.setDefaultImage("multer")
+            })
+    }
 
     onChangeName = (e) => {
         this.setState({ name: e.target.value })

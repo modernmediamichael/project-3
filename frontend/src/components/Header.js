@@ -15,9 +15,9 @@ const Header = () => {
             <LinkContainer to="/store-locator">
                  <Nav.Link>Store Locator</Nav.Link>
             </LinkContainer>
-            <LinkContainer to="/create-product">
+            {/* <LinkContainer to="/create-product">
                  <Nav.Link>Create Product</Nav.Link>
-            </LinkContainer>
+            </LinkContainer> */}
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="ml-auto">

@@ -1,7 +1,7 @@
 import React,{useState} from 'react';
-import API from '../utils/API';
+import API from '../../utils/API';
 
-const LoginScreen=(props)=>{
+const LoginForm=(props)=>{
     const [email,setEmail]=useState("");
     const [password,setPassword]=useState("");
 
@@ -20,6 +20,7 @@ const LoginScreen=(props)=>{
         }
     }
 
+
     return <div>
         <label>Email Address:</label>
         <input type="email" value={email} onChange={e=>{
@@ -30,8 +31,6 @@ const LoginScreen=(props)=>{
             setPassword(e.target.value);
         }} type="password" />
         <button onClick={logIn}>Log in</button>
-        <h1>Sign In</h1>
     </div>
 }
-
-export default LoginScreen
+export default LoginForm;

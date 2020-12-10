@@ -1,11 +1,11 @@
-const express = require('express')
-const image = require('../models/imageModel')
+import express from 'express'
+import Image from '../../models/imageModel.js'
+import multer from 'multer'
 const imageRouter = express.Router()
-const multer = require('multer')
 
 const storage = multer.diskStorage({
     destination: function(req, file, cb) {
-        cb(null, '../uploads')
+        cb(null, '../../uploads')
     },
     filename: function (req, file, cb) {
         cb(null, Date.now() + file.originalname)
@@ -44,5 +44,7 @@ imageRouter.route("/uploadmulter")
                     document: result
                 })
             })
-            .catch((err) => next(err))
+            .catch((err) => { console.log(err); next(err)})
     })
+
+export default imageRouter

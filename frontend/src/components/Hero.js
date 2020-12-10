@@ -1,7 +1,5 @@
 import React from "react";
 import { Jumbotron, Button, Container } from "react-bootstrap";
-import { Link } from 'react-router-dom'
-import LoginScreen from '../screens/LoginScreen'
 
 const Hero = () => {
   return (
@@ -12,9 +10,9 @@ const Hero = () => {
           This is an online catalog where you can save products and view exclusive wholesale pricing.
         </p>
         <p>
-          <Link to={LoginScreen}>
+          <a to='/login'>
             <Button variant="primary">Login</Button>
-          </Link>
+          </a>
         </p>
       </Container>
     </Jumbotron>
