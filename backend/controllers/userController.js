@@ -1,8 +1,8 @@
-const db = require("../models");
-const md5=require("md5");
+import db from "../models/userModel.js"
+import md5 from "md5"
 
 // Defining methods for the postsController
-module.exports = {
+export default {
   
   register: function(req, res) {
     db.User.create({

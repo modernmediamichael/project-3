@@ -1,6 +1,6 @@
-const db = require("../models");
+import db from "../models/productModel.js"
 
-module.exports = {
+export default {
   findAll: function(req, res) {
     db.Product
       .find(req.query)

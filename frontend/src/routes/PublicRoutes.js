@@ -1,6 +1,5 @@
 import React from 'react'
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
-import { Container } from 'react-bootstrap'
 import ShopScreen from '../screens/ShopScreen'
 import ProductScreen from '../screens/ProductScreen'
 import LoginScreen from '../screens/LoginScreen'
@@ -13,12 +12,10 @@ import Footer from '../components/Footer'
 function PublicRoutes() {
   return (
     <Router>
-
       <main className='py-3'>
         <Header />
         <Hero />  
         <Switch>
- 
           <Route path='/shop' component={ShopScreen} exact/>
           <Route path='/product/:id' component={ProductScreen} exact/>
           <Route path='/store-locator' component={StoreLocatorScreen} exact/>

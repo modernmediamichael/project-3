@@ -1,8 +1,9 @@
 import express from 'express'
 import asyncHandler from 'express-async-handler'
+import Product from '../../models/productModel.js'
+import productsController from "../../controllers/productsController.js";
+
 const router = express.Router()
-import Product from '../models/productModel.js'
-// import productsController from "../../controllers/productsController";
 
 // @desc Fetch all products
 // @desc GET /api/products
@@ -54,6 +55,6 @@ router.post('/', async (req,res)=>{
     res.status(201).json(createdProduct)
 })
 
-// router.route("/").get(productsController.findAll).post(productsController.create);
+router.route("/").get(productsController.findAll).post(productsController.create);
 
 export default router

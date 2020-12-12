@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { Row, Col, Image, ListGroup, Card, Button} from 'react-bootstrap'
+import { Row, Col, Image, ListGroup, Card, Button } from 'react-bootstrap'
 import Rating from '../components/Rating'
 import axios from 'axios'
 
@@ -15,6 +15,28 @@ const ProductScreen = ( {match} ) => {
         }
         fetchProduct()
     },[match])
+
+    async function addToCart(id, quantity) {
+        try {
+          const response = await axios.get("/api/cart", {
+            method: "POST",
+            body: JSON.stringify({
+              productId: id,
+              quantity: quantity,
+            }),
+            headers: {
+              "Content-type": "application/json; charset=UTF-8",
+            },
+          });
+          let data = await response.json();
+          alert("Item Added To Cart");
+          console.log(data);
+        } catch (err) {
+          alert("Something Went Wrong");
+          console.log(err);
+        }
+      }
+      
     return (
         <>
             <Link className='btn btn-light my-3' to='/shop'>Go Back</Link>
@@ -57,7 +79,7 @@ const ProductScreen = ( {match} ) => {
                                 </Row>
                             </ListGroup.Item>
                             <ListGroup.Item>
-                                <Button className='btn-block' type='button' disabled={product.inStock===0}>
+                                <Button onClick={(e) => addToCart(product._id, 1)} className='btn-block' type='button' disabled={product.inStock===0}>
                                     Save To Wishlist
                                 </Button>
                             </ListGroup.Item>

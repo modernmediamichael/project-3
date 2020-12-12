@@ -1,9 +1,9 @@
-const db = require("../models");
-const md5=require("md5");
-const jwt=require("jsonwebtoken");
+import db from "../models/userModel.js"
+import md5 from "md5"
+import jwt from "jsonwebtoken"
 
 // Defining methods for the postsController
-module.exports = {
+export default {
   
   authenticate: function(req, res) {
     if(!req.get("Authorization")) {
