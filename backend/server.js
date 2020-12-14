@@ -6,6 +6,8 @@ import connectDB from './config/db.js'
 import routes from "./routes/index.js"
 import path from "path"
 
+const __dirname = path.resolve(path.dirname(decodeURI(new URL(import.meta.url).pathname)));
+
 const PORT = process.env.PORT || 5020
 
 dotenv.config()
@@ -18,7 +20,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json())
 
 app.use(function(req, res) {
-    res.sendFile("../client/build/index.html");
+    res.sendFile(path.join(__dirname, "../client/build/index.html"));
 });
 
 app.use(routes)
