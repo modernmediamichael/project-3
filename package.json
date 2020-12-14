@@ -5,12 +5,16 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "node backend/server",
+    "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
+    "start:prod": "node backend/server.js",
     "server": "nodemon backend/server",
-    "client": "npm start --prefix frontend",
+    "client": "cd client && npm run start",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "data:import": "node backend/seeder",
-    "data:destroy": "node backend/seeder -d"
+    "data:destroy": "node backend/seeder -d",
+    "install": "cd client && npm install",
+    "build": "cd client && npm run build",
+    "heroku-postbuild": "npm run build"
   },
   "author": "Michael Muniz",
   "license": "ISC",
