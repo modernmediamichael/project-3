@@ -4,6 +4,7 @@ import { notFound, errorHandler } from './middleware/errorMiddleware.js'
 import colors from 'colors'
 import connectDB from './config/db.js'
 import routes from "./routes/index.js"
+import path from "path"
 
 const PORT = process.env.PORT || 5020
 
