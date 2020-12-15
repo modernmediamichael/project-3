@@ -16,7 +16,7 @@ connectDB()
 
 const app = express()
 
-app.use(express.static('../client/public'))
+app.use(express.static('../client/build'))
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json())
