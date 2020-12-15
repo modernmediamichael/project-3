@@ -5,6 +5,7 @@ import colors from 'colors'
 import connectDB from './config/db.js'
 import routes from "./routes/index.js"
 import path from "path"
+import cors from 'cors'
 
 const __dirname = path.resolve(path.dirname(decodeURI(new URL(import.meta.url).pathname)));
 
@@ -15,6 +16,8 @@ dotenv.config()
 connectDB()
 
 const app = express()
+
+app.use(cors())
 
 app.use(express.static('../client/build'))
 
